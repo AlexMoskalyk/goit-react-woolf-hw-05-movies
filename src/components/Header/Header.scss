@@ -1,0 +1,18 @@
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+  box-shadow: 0 8px 6px -6px black;
+  position: sticky;
+  color: black;
+
+  .link {
+    color: black;
+  }
+
+  .active {
+    color: aqua;
+  }
+}
