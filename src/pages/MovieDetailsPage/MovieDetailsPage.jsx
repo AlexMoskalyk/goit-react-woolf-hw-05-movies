@@ -12,8 +12,6 @@ const MovieDetailsPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  console.log(location);
-
   useEffect(() => {
     const getMovieById = async () => {
       try {
@@ -47,7 +45,7 @@ const MovieDetailsPage = () => {
 
   const handleGetBackBtn = () => {
     const isSure = window.confirm('Are you sure you want to get back');
-    isSure && navigate(location.state);
+    isSure && navigate(location.state ?? '/goit-react-woolf-hw-05-movies');
   };
 
   return (
