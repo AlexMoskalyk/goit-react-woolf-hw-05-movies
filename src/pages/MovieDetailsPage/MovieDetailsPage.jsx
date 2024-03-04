@@ -1,13 +1,18 @@
 import { fetchMoreInfoByMovieId, fetchMovieById } from 'api/Api';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
 import React, { useEffect, useState } from 'react';
-import { Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [casts, setCasts] = useState(null);
   const [reviews, setReviews] = useState(null);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  console.log(location);
 
   useEffect(() => {
     const getMovieById = async () => {
@@ -40,9 +45,15 @@ const MovieDetailsPage = () => {
     }
   };
 
+  const handleGetBackBtn = () => {
+    const isSure = window.confirm('Are you sure you want to get back');
+    isSure && navigate(location.state);
+  };
+
   return (
     <>
       <MovieDetails
+        handleGetBackBtn={handleGetBackBtn}
         movie={movie}
         getCastById={getCastById}
         getReviewsById={getReviewsById}

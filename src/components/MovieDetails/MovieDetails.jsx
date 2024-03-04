@@ -4,9 +4,17 @@ import { Link } from 'react-router-dom';
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/';
 const POSTER_SIZE = 'w500';
 
-const MovieDetails = ({ movie, getCastById, getReviewsById }) => {
+const MovieDetails = ({
+  movie,
+  getCastById,
+  getReviewsById,
+  handleGetBackBtn,
+}) => {
   return movie ? (
     <div>
+      <button type="button" onClick={handleGetBackBtn}>
+        Get Back
+      </button>
       <img
         width="250"
         src={`${BASE_IMAGE_URL}${POSTER_SIZE}${movie.poster_path}`}

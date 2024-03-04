@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { fetchTrandingMovies } from '../../api/Api.js';
 import React, { useEffect, useState } from 'react';
 
 const HomePage = () => {
   const [trandingMovies, setTrandingMovies] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     const getTrandingMovies = async () => {
@@ -23,7 +24,9 @@ const HomePage = () => {
       <ul>
         {trandingMovies.map(movie => (
           <li key={movie.id}>
-            <Link to={`Movie/${movie.id}`}>{movie.title}</Link>
+            <Link to={`Movie/${movie.id}`} state={location}>
+              {movie.title}
+            </Link>
           </li>
         ))}
       </ul>
