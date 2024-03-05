@@ -1,8 +1,22 @@
-import React from 'react';
-import { useOutletContext } from 'react-router-dom';
+import { fetchMoreInfoByMovieId } from 'api/Api';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const Reviews = () => {
-  const { reviews } = useOutletContext();
+  const { movieId } = useParams();
+  const [reviews, setReviews] = useState(null);
+  useEffect(() => {
+    const getReviewsById = async () => {
+      try {
+        const data = await fetchMoreInfoByMovieId(movieId, 'reviews');
+        setReviews(data);
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+    movieId && getReviewsById();
+  }, [movieId]);
+
   return reviews ? (
     <div>
       <ul>

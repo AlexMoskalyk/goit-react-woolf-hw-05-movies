@@ -8,7 +8,7 @@ const MovieList = ({ movies, pageType }) => {
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            <Link to={`movie/${movie.id}`} state={location}>
+            <Link to={`/movie/${movie.id}`} state={location}>
               {movie.title}
             </Link>
           </li>

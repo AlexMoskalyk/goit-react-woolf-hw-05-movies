@@ -4,12 +4,7 @@ import { Link } from 'react-router-dom';
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/';
 const POSTER_SIZE = 'w500';
 
-const MovieDetails = ({
-  movie,
-  getCastById,
-  getReviewsById,
-  handleGetBackBtn,
-}) => {
+const MovieDetails = ({ movie, handleGetBackBtn }) => {
   return movie ? (
     <div>
       <button type="button" onClick={handleGetBackBtn}>
@@ -36,14 +31,10 @@ const MovieDetails = ({
         <h3>Additional information</h3>
         <ul>
           <li>
-            <Link to="Cast" onClick={getCastById}>
-              Cast
-            </Link>
+            <Link to="cast">Cast</Link>
           </li>
           <li>
-            <Link to="Reviews" onClick={getReviewsById}>
-              Reviews
-            </Link>
+            <Link to="reviews">Reviews</Link>
           </li>
         </ul>
       </div>
