@@ -10,12 +10,12 @@ export const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/goit-react-woolf-hw-05-movies" element={<MainLayout />}>
+        <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="Movie" element={<MoviePage />} />
-          <Route path="Movie/:movieId" element={<MovieDetailsPage />}>
-            <Route path="Cast" element={<Cast />} />
-            <Route path="Reviews" element={<Reviews />} />
+          <Route path="movie" element={<MoviePage />} />
+          <Route path="movie/:movieId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
       </Routes>
