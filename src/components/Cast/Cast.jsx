@@ -1,6 +1,10 @@
 import { fetchMoreInfoByMovieId } from 'api/Api';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Nothing from '../../images/NoImage.jpeg';
+
+const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/';
+const POSTER_SIZE = 'w500';
 
 const Cast = () => {
   //   const { casts } = useOutletContext();
@@ -19,9 +23,6 @@ const Cast = () => {
     movieId && getCastById();
   }, [movieId]);
 
-  const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/';
-  const POSTER_SIZE = 'w500';
-
   return casts ? (
     <div>
       <h3>Cast</h3>
@@ -30,8 +31,12 @@ const Cast = () => {
           <li key={item.credit_id}>
             <img
               width="250"
-              src={`${BASE_IMAGE_URL}${POSTER_SIZE}${item.profile_path}`}
-              alt="photo"
+              src={
+                item.profile_path
+                  ? `${BASE_IMAGE_URL}${POSTER_SIZE}${item.profile_path}`
+                  : `${Nothing}`
+              }
+              alt="cast member"
             />
             <p>Character:{item.character}</p>
             <p>Real name:{item.name}</p>
@@ -44,8 +49,12 @@ const Cast = () => {
           <li key={item.credit_id}>
             <img
               width="250"
-              src={`${BASE_IMAGE_URL}${POSTER_SIZE}${item.profile_path}`}
-              alt="photo"
+              src={
+                item.profile_path
+                  ? `${BASE_IMAGE_URL}${POSTER_SIZE}${item.profile_path}`
+                  : `${Nothing}`
+              }
+              alt="crew member"
             />
             <p>Real name:{item.name}</p>
             <p>Job:{item.job}</p>

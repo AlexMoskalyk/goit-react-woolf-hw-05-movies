@@ -1,11 +1,11 @@
-import { fetchMoreInfoByMovieId, fetchMovieById } from 'api/Api';
+import { fetchMovieById } from 'api/Api';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
 import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState([]);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -24,8 +24,7 @@ const MovieDetailsPage = () => {
   }, [movieId]);
 
   const handleGetBackBtn = () => {
-    const isSure = window.confirm('Are you sure you want to get back');
-    isSure && navigate(location.state ?? '/');
+    navigate(location.state ?? '/');
   };
 
   return (
