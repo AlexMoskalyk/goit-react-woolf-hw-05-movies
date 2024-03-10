@@ -7,7 +7,7 @@ const POSTER_SIZE = 'w500';
 
 const MovieDetails = ({ movie, handleGetBackBtn }) => {
   return (
-    movie.length > 0 && (
+    movie && (
       <div>
         <button type="button" onClick={handleGetBackBtn}>
           Get Back

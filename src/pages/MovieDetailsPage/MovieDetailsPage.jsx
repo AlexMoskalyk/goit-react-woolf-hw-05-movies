@@ -5,7 +5,7 @@ import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState(null);
 
   const location = useLocation();
   const navigate = useNavigate();
